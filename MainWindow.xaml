@@ -1,0 +1,79 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Расписание занятий" Height="820" Width="1320"
+        Background="#A9A9A9"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize" >
+    <Grid>
+        <Image Source="C:\Users\kasan\OneDrive\Рабочий стол\проги\Icon\fon.jpg" Stretch="Fill"/>
+        <Border CornerRadius="10"  Margin="20 20 20 20" >
+            <Border.Background >
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.8"/>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="10" Color="White" Opacity="0.5" BlurRadius="15" RenderingBias="Quality" />
+            </Border.Effect>
+            
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <Label Content="Занятия" Margin="15 0 15 0" Height="40" Width="100" FontSize="20"  FontFamily="Cambria" 
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    
+                    <Button Content="Экзамены в ГАИ" Margin="15 0 15 0" Height="40" Width="106" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Dialogs}" 
+                            Click="GaiButton_Click" FontFamily="Cambria"/>
+                    <Button Margin="890 0 15 0" Height="40" Width="40" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Circle}" 
+                            Click="AutoButton_Click" Background="#E0B0FF" BorderThickness="0.6" BorderBrush="Black">
+                        <Image Source="C:\Users\kasan\OneDrive\Рабочий стол\проги\Icon\1й.png" Height="32" Width="32" SnapsToDevicePixels="True" />
+                    </Button>
+                    <Button Content="X" Margin="35 0 15 0" Height="20" Width="20"  Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Chromeless}" 
+                            Background="#660099" Click="CloseButton_Click" Foreground="White" FontWeight="Bold" FontFamily="Cambria"/>
+                </StackPanel>
+                
+                <StackPanel  Orientation="Horizontal" Margin="90 10 0 0"  Width="645" HorizontalAlignment="Left">
+                    <Label Content="Поиск по ФИО" BorderBrush="Gray" BorderThickness="1" Background="#FFFFFF" Foreground="Black" FontFamily="Cambria"/>
+                    <TextBox x:Name="ScanTextBox"  Width="500" Margin="0 0 0 0" Style="{StaticResource MahApps.Styles.TextBox}" 
+                             Background="#D5D5D5" BorderBrush="Gray" BorderThickness="1" Grid.Row="0" />
+                    <Border BorderBrush="Gray" BorderThickness="1">
+                        <Button Content="Найти" Margin="-0.5 0 0 0" Style="{StaticResource MahApps.Styles.Button.DropDown}" FontSize="15" Click="ScunButton_Click" FontFamily="Cambria" Height="25"/>
+                    </Border>
+                </StackPanel>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Height="645" Width="1100" Margin="0 15 0 0">
+                    <DataGrid x:Name="dataGrid" Height="645" Width="1100" HorizontalAlignment="Center" Margin="0" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" 
+                          IsReadOnly="True" DataGrid.ColumnWidth="220" RowHeight="30" Grid.Row="2" Cursor="" AutoGenerateColumns="True" GridLinesVisibility="Horizontal">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontFamily" Value="Cambria"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <!-- Стиль для центровки текста в заголовках -->
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontFamily" Value="Cambria"/>
+                                <Setter Property="Background" Value="#E0B0FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Height" Value="25"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                    </DataGrid>
+                </Border>
+                
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

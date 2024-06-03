@@ -1,0 +1,96 @@
+﻿<Window x:Class="WpfApp2.MainWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Расписание занятий" Height="820" Width="1320"
+        Background="#A9A9A9"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize" >
+    <Grid>
+        <Image Source="C:\Users\kasan\OneDrive\Рабочий стол\проги\Icon\fon.jpg" Stretch="Fill"/>
+        <Border CornerRadius="10" Margin="20 20 20 20">
+            <Border.Background >
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.8"/>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="10" Color="White" Opacity="0.5" BlurRadius="15" RenderingBias="Quality" />
+            </Border.Effect>
+            
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <Label Content="Занятия" Margin="15 0 15 0" Height="40" Width="100" FontSize="20"  FontFamily="Cambria" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                    <Button Content="Экзамены в ГАИ" Margin="15 0 15 0" Height="20" Width="106" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Dialogs}" 
+                            Click="GaiButton_Click" FontFamily="Cambria"/>
+                    <Button Content="Студенты" Margin="15 0 15 0" Height="20" Width="106" Cursor="Hand" Background="#E0B0FF" 
+                            Click="StudButton_Click" FontFamily="Cambria" BorderThickness="0.3" BorderBrush="Black"/>
+                    <Button Content="Инструктора" Margin="15 0 15 0" Height="20" Width="106" Cursor="Hand" Background="#E0B0FF" 
+                            Click="InsrtButton_Click" FontFamily="Cambria" BorderThickness="0.3" BorderBrush="Black"/>
+                    <StackPanel Orientation="Vertical" Margin="560 0 0 0">
+                        <Label Content="Офис-менеджер" FontFamily="Cambria" FontSize="13"/>
+                        <Button Content="выйти" FontFamily="Cambria" FontSize="10" Width="50" Margin="0 -3 0 0" Style="{StaticResource MahApps.Styles.Button.DropDown}" 
+                                Foreground="Black" Background="#F8F8F7" BorderBrush="Gray" BorderThickness="0.3" Click="LivButton_Click"/>
+                    </StackPanel>
+                    <Button Content="X" Margin="40 0 15 0" Height="20" Width="20"  Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Chromeless}" 
+                            Background="#660099" Click="CloseButton_Click" Foreground="White" FontWeight="Bold" FontFamily="Cambria"/>
+                    
+                </StackPanel>
+                
+                <StackPanel  Orientation="Horizontal" Margin="90 10 0 0"  Width="700" HorizontalAlignment="Left">
+                    <Label Content="Поиск по ФИО" BorderBrush="Gray" BorderThickness="1" Background="#FFFFFF" Foreground="Black" FontFamily="Cambria"/>
+                    <TextBox x:Name="ScanTextBox"  Width="500" Margin="0 0 0 0" Style="{StaticResource MahApps.Styles.TextBox}" 
+                             Background="#D5D5D5" BorderBrush="Gray" BorderThickness="1" Grid.Row="0"/>
+                    <Border BorderBrush="Gray" BorderThickness="1">
+                        <Button Content="Найти" Margin="0 0 0 0" Style="{StaticResource MahApps.Styles.Button.DropDown}" FontSize="15" Click="ScunButton_Click" FontFamily="Cambria" Height="25"/>
+                    </Border>
+                    <Border BorderBrush="Gray" BorderThickness="1" Margin="20 0 0 0" Width="27" >
+                        <Button Content="↻" FontFamily="Cambria" FontStretch="Condensed" FontSize="15" Style="{StaticResource MahApps.Styles.Button.DropDown}" 
+                                Background="#660099" Foreground="White" FontWeight="Bold" Width="27" Height="26" Click="RepitButton_Click"/>
+                    </Border>
+                </StackPanel>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Height="625" Width="1100" Margin="0 15 0 0">
+                    <DataGrid x:Name="dataGrid" Height="625" Width="1100" HorizontalAlignment="Center" Margin="0" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" 
+          IsReadOnly="True" DataGrid.ColumnWidth="220" RowHeight="30" Grid.Row="2" Cursor="" AutoGenerateColumns="True" GridLinesVisibility="Horizontal">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontFamily" Value="Cambria"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <!-- Стиль для центровки текста в заголовках -->
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="14"/>
+                                <Setter Property="FontFamily" Value="Cambria"/>
+                                <Setter Property="Background" Value="#E0B0FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Height" Value="25"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                    </DataGrid>
+                </Border>
+                
+                <StackPanel Orientation="Horizontal" Width="390" Height="30" Margin="0 15 0 0">
+                    <Button Content="Добавить" Margin="15 0 15 0" Height="20" Width="100" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Dialogs}" 
+                            Click="AddButton_Click" FontFamily="Cambria" FontSize="15" />
+                    <Button Content="Изменить" Margin="15 0 15 0" Height="20" Width="100" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Dialogs}" 
+                            Click="EditButton_Click" FontFamily="Cambria" FontSize="15"/>
+                    <Button Content="Удалить" Margin="15 0 15 0" Height="20" Width="100" Cursor="Hand" Style="{StaticResource MahApps.Styles.Button.Dialogs}" 
+                            Click="DellButton_Click" FontFamily="Cambria" FontSize="15"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
